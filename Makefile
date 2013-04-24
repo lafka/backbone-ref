@@ -1,19 +1,16 @@
 EPM?=~/bin/epm
 
-DEPS=backbone underscore bootstrap jquery requirejs
+DEPS=bootstrap jquery
 
 all: deps $(DEPS)
 
 deps:
 	$(EPM) deps sync
 
-$(DEPS): ;
-
 jquery:
-	$(foreach target, $(wildcard vendor/js/jquery/*), \
+	$(foreach target, $(wildcard vendor/jquery/*), \
                (cd $(target) && make jquery))
 
 bootstrap:
-	$(foreach target, $(wildcard vendor/css/bootstrap/*), \
+	$(foreach target, $(wildcard vendor/bootstrap/*), \
                (cd $(target) && make))
-
