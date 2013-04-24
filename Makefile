@@ -9,8 +9,8 @@ deps:
 
 jquery:
 	$(foreach target, $(wildcard vendor/jquery/*), \
-               (cd $(target) && make jquery))
+               (cd $(target) && npm install && npm install grunt-cli && node_modules/grunt-cli/bin/grunt))
 
 bootstrap:
 	$(foreach target, $(wildcard vendor/bootstrap/*), \
-               (cd $(target) && make))
+               (cd $(target) && npm install && make))
