@@ -1,8 +1,8 @@
 require.config({
 	paths   : {
-		underscore   : "vendor/underscore.js/1.4.4/underscore",
-		backbone     : "vendor/backbone.js/1.0.0/backbone",
-		jquery       : "vendor/jquery/1.9.1/dist/jquery"
+		underscore   : "../vendor/underscore.js/1.4.4/underscore",
+		backbone     : "../vendor/backbone.js/1.0.0/backbone",
+		jquery       : "../vendor/jquery/1.9.1/dist/jquery"
 	},
 
 	shim    : {
@@ -27,23 +27,7 @@ require.future = function(ctx, deps) {
 	return promise;
 };
 
-var deps =
-	['backbone',
-	 'jquery',
-	 'app/helloworld/plugin'
-	];
-
-require(deps, function(Backbone, $, Index) {
-	var args = arguments;
-
-	_.each(deps, function(path, i) {
-		var arg = args[i];
-
-		if (path.match(/^app\/.*/) && 'function' == typeof(arg)) {
-			console.log("app:init: " + path.replace(/app\/([^\/]+).*/, '$1'));
-			new arg();
-		}
+require(['backbone', 'jquery', 'underscore'], function(Backbone, $, _) {
+	require(['app'], function() {
 	});
-
-	Backbone.history.start();
 });

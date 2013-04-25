@@ -1,6 +1,6 @@
 define(
-	["backbone",
-	 "jquery"
+	['backbone',
+	 'jquery'
 	],
 	function(Backbone, $) {
 		var view = Backbone.View.extend({

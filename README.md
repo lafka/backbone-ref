@@ -12,13 +12,20 @@ make
 ## Plugins and such
 
 Except for the vendor specific stuff there is only the `js/init.js`
-file that initiates the `plugins` and fires up the system backbone
-history.
+and `js/app.js` that's responsible for setting up your system.
+
+The initialization sequence goes like this:
+
+```
++ load app/init.js
+-> Loads dependencies (underscore, Backbone, jQuery etc)
+
++ load app/app.js
+-> Loops through all packages/dependencies and initiates them
+```
 
 The way this works is you add a plugin `js/<plugin-name>` and then
-(remembering your path) add it to the `deps` array in `init.js`.
-As long your plugin returns a function that can be instantiated your
-good to go (see example below).
+(remembering your path) add it to the `deps` array in `app.js`.
 
 We can for instance have a self contained router (_app/helloworld/main.js_):
 

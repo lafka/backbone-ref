@@ -1,10 +1,9 @@
 define(
-	["backbone",
-	 "jquery",
-	 "app/helloworld/view/main"
+	['backbone',
+	 'jquery',
+	 'helloworld/view/main'
 	],
 	function(Backbone, $, View) {
-
 		var router = Backbone.Router.extend({
 			view: undefined,
 
