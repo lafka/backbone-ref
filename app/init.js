@@ -40,7 +40,7 @@ require(deps, function(Backbone, $, Index) {
 		var arg = args[i];
 
 		if (path.match(/^app\/.*/) && 'function' == typeof(arg)) {
-			console.log("route:init: " + path.replace(/js\/([^\/]+).*/, '\\$1'));
+			console.log("app:init: " + path.replace(/app\/([^\/]+).*/, '$1'));
 			new arg();
 		}
 	});
